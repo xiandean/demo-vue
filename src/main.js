@@ -1,32 +1,17 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App.vue'
-// import router from 'router/index'
-// import store from './store'
-
-import 'amfe-flexible'
+import App from './App'
+// import router from './router'
 
 import 'common/scss/common.scss'
 
-import fastclick from 'fastclick'
-
-fastclick.attach(document.body)
-
-document.addEventListener('touchmove', (e) => {
-	e.preventDefault()
-}, {
-	passive: false
-})
-
 Vue.config.productionTip = false
 
-document.addEventListener('touchmove', (e) => {
-	e.preventDefault()
-}, {
-	passive: false
-})
-
+/* eslint-disable no-new */
 new Vue({
-    // router,
-    // store,
-    render: h => h(App)
-}).$mount('#app')
+  el: '#app',
+  // router,
+  components: { App },
+  template: '<App/>'
+})
