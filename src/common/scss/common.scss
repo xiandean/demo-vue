@@ -1,0 +1,41 @@
+/***************************{CSS Common}*****************************/
+@import 'reset.scss';
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Microsoft YaHei";
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.fade-enter-active {
+	animation: fadein 0.3s;
+}
+
+.fade-leave-active {
+	animation: fadeout 0.3s;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeout {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

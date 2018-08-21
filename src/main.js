@@ -1,12 +1,32 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
+// import router from 'router/index'
+// import store from './store'
+
+import 'amfe-flexible'
+
+import 'common/scss/common.scss'
+
+import fastclick from 'fastclick'
+
+fastclick.attach(document.body)
+
+document.addEventListener('touchmove', (e) => {
+	e.preventDefault()
+}, {
+	passive: false
+})
 
 Vue.config.productionTip = false
 
+document.addEventListener('touchmove', (e) => {
+	e.preventDefault()
+}, {
+	passive: false
+})
+
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    // router,
+    // store,
+    render: h => h(App)
 }).$mount('#app')

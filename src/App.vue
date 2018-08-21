@@ -1,29 +1,60 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <!-- <router-view/> -->
+        <loading v-show="currentPage === 'loading'" @complete="onLoadComplete"></loading>
+        <home v-show="currentPage === 'home'"></home>
+
+        <orient-layer></orient-layer>
+        <!-- <music ref="music" :src="require('common/music/bg.mp3')"></music> -->
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+    import Loading from 'pages/loading/Loading'
+    import Home from 'pages/home/Home'
+    import Music from 'components/base/Music'
+    import OrientLayer from 'components/base/OrientLayer'
+
+    import weixin from 'api/weixin'
+
+    export default {
+        name: 'app',
+        data () {
+            return {
+                currentPage: 'loading'
+            }
+        },
+        methods: {
+            onLoadComplete () {
+                setTimeout(() => {
+                    this.currentPage = 'home'
+                }, 1000)
+            }
+        },
+        mounted () {
+            weixin.getConfig().then(() => {
+                weixin.setShare({
+                    title: '分享标题', // 分享标题
+                    desc: '分享描述', // 分享描述
+                    imgUrl: 'http://n.sinaimg.cn/gd/xiaopiqi/answer/weixin_share.jpg', // 分享图标
+                    // callback: function () {}, // 分享成功回调
+                })
+                this.$refs.music.play()
+            })
+        },
+        components: {
+            Loading,
+            Home,
+            OrientLayer,
+            Music
+        }
     }
-  }
-}
+</script>
+
+<style lang="scss" scoped>
+    #app {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
 </style>

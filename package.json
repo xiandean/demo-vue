@@ -7,6 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "fastclick": "^1.0.6",
+    "jsonp": "^0.2.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
@@ -15,6 +18,7 @@
     "@vue/cli-plugin-babel": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "node-sass": "^4.9.0",
+    "postcss-adaptive": "^0.5.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
   }
