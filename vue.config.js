@@ -22,13 +22,7 @@ module.exports = {
         // loaderOptions: {
         //     postcss: {
         //         // options here will be passed to postcss-loader
-        //         plugins: [require('postcss-adaptive')({
-        //             remUnit: 75,
-        //             baseDpr: 2,
-        //             remPrecision: 6,
-        //             hairlineClass: 'hairlines',
-        //             autoRem: true
-        //         })]
+        //         plugins: []
         //     }
         // }
     }
