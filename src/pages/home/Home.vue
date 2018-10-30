@@ -23,6 +23,9 @@
 			showToast () {
 				this.$refs.toast.show()
 			},
+			onLotteryDone (result) {
+				console.log(result)
+			}
 		},
 		mounted () {
 			this.showDialog()

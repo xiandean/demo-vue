@@ -4,7 +4,6 @@ import qs from 'qs'
 export default (options) => {
     let config = {
         method: options.method || 'get',
-        baseURL: '/',
         url: options.url
     }
 

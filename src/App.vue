@@ -34,6 +34,7 @@
         mounted () {
             weixin.getConfig().then(() => {
                 weixin.setShare({
+                    // link: '',
                     title: '分享标题', // 分享标题
                     desc: '分享描述', // 分享描述
                     imgUrl: 'http://n.sinaimg.cn/gd/xiaopiqi/answer/weixin_share.jpg', // 分享图标
