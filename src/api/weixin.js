@@ -68,10 +68,10 @@ export default {
         return Promise.resolve(user.openid)
     },
 
-    async getUserInfo(openid = user.openid) {
+    async getUserInfo(uid = user.openid) {
+        let openid = uid;
         if (!openid) {
-            await this.getOpenid()
-            return this.getUserInfo()
+            openid = await this.getOpenid()
         }
         let res = await jsonp({
             url: 'http://interface.gd.sina.com.cn/gdif/gdwx/c_member/',
