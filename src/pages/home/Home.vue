@@ -1,10 +1,8 @@
 <template>
-	<transition name="fade">
-		<div class="home page">
-			<v-dialog ref="dialog" @confirm="showToast"></v-dialog>
-			<toast ref="toast" type="success" tip="删除成功" :time="2000" @done="showDialog"></toast>
-		</div>
-	</transition>
+	<div class="home">
+		<v-dialog ref="dialog" @confirm="showToast"></v-dialog>
+		<toast ref="toast" type="success" tip="删除成功" :time="2000" @done="showDialog"></toast>
+	</div>
 </template>
 
 <script>
@@ -25,7 +23,10 @@
 			},
 			onLotteryDone (result) {
 				console.log(result)
-			}
+			},
+			loadData() {
+        		console.log('loadData')
+      		}
 		},
 		mounted () {
 			this.showDialog()
@@ -35,6 +36,8 @@
 
 <style lang="scss" scoped>
 	.home {
-		background-color: #fff;
+		width: 100%;
+		height: 100%;
+		position: relative;
 	}
 </style>

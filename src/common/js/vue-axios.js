@@ -1,9 +1,4 @@
 function plugin(Vue, axios) {
-	if (plugin.installed) {
-		return
-	}
-	plugin.installed = true
-
 	if (!axios) {
 		console.error('You have to install axios')
 		return

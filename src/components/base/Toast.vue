@@ -51,9 +51,9 @@
 	    z-index: 99999;
 	    width: 7.6em;
 	    min-height: 7.6em;
-	    top: 360px;
 	    left: 50%;
-	    margin-left: -3.8em;
+		top: 48%;
+		transform: translate(-50%, -50%);
 	    background: rgba(17, 17, 17, 0.7);
 	    text-align: center;
 	    border-radius: 10px;

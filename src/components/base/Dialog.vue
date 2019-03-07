@@ -64,7 +64,7 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		z-index: 99999;
+		z-index: 99;
 		background-color: rgba(0, 0, 0, 0.3);
 		&.dialog-fade-enter-active {
 			animation: dialog-fadein 0.3s;
@@ -83,7 +83,7 @@
 			max-width: 600px;
 			position: absolute;
 			left: 50%;
-			top: 50%;
+			top: 48%;
 			transform: translate(-50%, -50%);
 			.dialog-content {
 				border-radius: 6px;
