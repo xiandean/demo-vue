@@ -16,6 +16,12 @@ module.exports = {
             .set('router', resolve('src/router'))
             .set('store', resolve('src/store'))
     },
+    configureWebpack: config => {
+        require('vux-loader').merge(config, {
+            options: {},
+            plugins: ['vux-ui']
+        })
+    },
     productionSourceMap: false,
     css: {
         // sourceMap: true,
@@ -25,7 +31,7 @@ module.exports = {
         //         plugins: []
         //     }
         // }
-    }
+    },
 }
 
 // module.exports = {
@@ -87,7 +93,12 @@ module.exports = {
 //         port: 8080,
 //         https: false,
 //         hotOnly: false,
-//         proxy: null, // 设置代理
+//         // 设置代理
+//         proxy: {
+//              '/api': {
+//                  target: 'http://' + address + ':3000/'
+//              },
+//         }
 //         before: app => {}
 //     },
 //     // 第三方插件配置

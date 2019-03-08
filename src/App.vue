@@ -39,6 +39,7 @@
             }
         },
         mounted () {
+
             weixin.getConfig().then(() => {
                 weixin.setShare({
                     // link: '',
