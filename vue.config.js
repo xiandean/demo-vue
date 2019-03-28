@@ -16,12 +16,12 @@ module.exports = {
             .set('router', resolve('src/router'))
             .set('store', resolve('src/store'))
     },
-    configureWebpack: config => {
-        require('vux-loader').merge(config, {
-            options: {},
-            plugins: ['vux-ui']
-        })
-    },
+    // configureWebpack: config => {
+    //     require('vux-loader').merge(config, {
+    //         options: {},
+    //         plugins: ['vux-ui']
+    //     })
+    // },
     productionSourceMap: false,
     css: {
         // sourceMap: true,

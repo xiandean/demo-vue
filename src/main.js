@@ -3,7 +3,7 @@ import App from './App.vue'
 // import router from 'router/index'
 // import store from './store'
 
-import 'amfe-flexible'
+// import 'amfe-flexible'
 
 import 'common/scss/common.scss'
 
