@@ -24,12 +24,6 @@
 
     import weixin from 'api/weixin'
 
-    import Vue from 'vue'
-    // import  { ToastPlugin, AlertPlugin, ConfirmPlugin } from 'vux'
-    // Vue.use(ToastPlugin)
-    // Vue.use(AlertPlugin)
-    // Vue.use(ConfirmPlugin)
-
     export default {
         name: 'app',
         data () {

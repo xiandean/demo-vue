@@ -27,7 +27,6 @@
     "postcss-adaptive": "^0.5.0",
     "postcss-px2rem-exclude": "^0.0.6",
     "sass-loader": "^7.0.1",
-    "vue-loader": "14.2.3",
     "vue-template-compiler": "^2.5.17",
     "vux-loader": "^1.2.9"
   }
