@@ -42,28 +42,27 @@
 
             weixin.getConfig().then(() => {
                 weixin.setShare({
-                    // link: '',
+                    link: '',
                     title: '分享标题', // 分享标题
                     desc: '分享描述', // 分享描述
                     imgUrl: 'http://n.sinaimg.cn/gd/xiaopiqi/answer/weixin_share.jpg', // 分享图标
                     // callback: function () {}, // 分享成功回调
                 })
-                this.$refs.music.play()
+                // this.$refs.music.play()
             })
         },
         watch: {
             activePage: {
-                handler(val, oldVal) {
-                    this.$nextTick(() => {
-                        if (this.$refs[val]) {
-                            this.$refs[val].show()
-                        }
-                        if (this.$refs[oldVal]) {
-                            this.$refs[oldVal].hide()
-                        }
-                    })
+                async handler(val, oldVal) {
+                    await this.$nextTick()
+                    if (this.$refs[val]) {
+                        this.$refs[val].show()
+                    }
+                    if (this.$refs[oldVal]) {
+                        this.$refs[oldVal].hide()
+                    }
                 },
-                immediate: true
+                immediate: true,
             },
         },
         components: {

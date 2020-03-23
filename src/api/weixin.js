@@ -5,7 +5,7 @@ import { getQueryString } from 'common/js/util'
 export default {
     async getConfig() {
         let res = await jsonp({
-            url: 'http://news.gd.sina.com.cn/market/c/gd/weixinjsapi/index.php',
+            url: 'http://o.gd.sina.com.cn/market/c/gd/weixinjsapi/index.php',
             data: {
                 url: window.location.href.split('#')[0]
             }

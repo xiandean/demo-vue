@@ -32,13 +32,17 @@
                 this.$refs.bgMusic.play()
                 this.isPlay = true
             },
+            replay () {
+                this.$refs.bgMusic.currentTime = 0
+                this.play()
+            },
             pause () {
                 this.$refs.bgMusic.pause()
                 this.isPlay = false
             },
             cancelEvents () {
                 this.isTouched = true
-                document.removeEventListener('touchstart', this.touchPlay)
+                document.removeEventListener('click', this.touchPlay)
             },
             touchPlay () {
                 if (this.autoplay && this.$refs.bgMusic.paused) {
@@ -51,7 +55,7 @@
             if (this.autoplay) {
                 this.isPlay = true
             }
-            document.addEventListener('touchstart', this.touchPlay, false)
+            document.addEventListener('click', this.touchPlay, false)
         }
     }
 </script>

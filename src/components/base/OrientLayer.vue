@@ -70,7 +70,7 @@
         }
     }
 
-    @media screen and (min-aspect-ratio: 13 / 9) {
+    @media screen and (min-aspect-ratio: 16 / 9) {
         .mod-orient-layer {
             display: block;
             z-index: 999;

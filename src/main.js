@@ -5,19 +5,15 @@ import App from './App.vue'
 
 // import 'amfe-flexible'
 
+// import { Dialog } from 'vant'
+
+// 全局注册
+// Vue.use(Dialog)
+
 import 'common/scss/common.scss'
 
-import fastclick from 'fastclick'
-
-// import  { ToastPlugin, AlertPlugin, ConfirmPlugin } from 'vux'
-// import ToastPlugin from 'vux/src/plugins/toast'
-// import AlertPlugin from 'vux/src/plugins/alert'
-// import ConfirmPlugin from 'vux/src/plugins/confirm'
-// Vue.use(ToastPlugin)
-// Vue.use(AlertPlugin)
-// Vue.use(ConfirmPlugin)
-
-fastclick.attach(document.body)
+// import fastclick from 'fastclick'
+// fastclick.attach(document.body)
 
 document.addEventListener('touchmove', (e) => {
 	e.preventDefault()
@@ -46,7 +42,6 @@ Vue.config.productionTip = false
 // ======`-.____`-.___\_____/___.-`____.-'====== 
 //                   `=---=' 
 // 
-
 // ............................................. 
 
 let vue = new Vue({

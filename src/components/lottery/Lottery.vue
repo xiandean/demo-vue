@@ -35,7 +35,7 @@
 					return;
 				}
 				this.locked = true;
-				this.result = await this.getResult()
+				this.result = await this.getResult();
 				let data = stopData.none
 				if (this.result === 1) {
 					data = stopData.first
