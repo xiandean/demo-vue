@@ -1,5 +1,5 @@
 export default {
 	openid: '',
-	name: '',
+	nickname: '',
 	avatar: '',
 }

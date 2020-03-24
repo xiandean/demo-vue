@@ -1,6 +1,5 @@
 import jsonp from './jsonp'
 import user from './user'
-import { getQueryString } from 'common/js/util'
 
 export default {
     async getConfig() {
@@ -10,6 +9,7 @@ export default {
                 url: window.location.href.split('#')[0]
             }
         })
+        // console.log(res)
         wx.config({
             debug: false,
             appId: res.data.appId,
@@ -51,21 +51,40 @@ export default {
 
         wx.onMenuShareQQ(config)
     },
-
-    getOpenid() {
-        if (getQueryString('openid')) {
-            user.openid = getQueryString('openid')
-            localStorage.setItem('wx_openid', user.openid)
-        } else if (localStorage.getItem('wx_openid')) {
-            user.openid = localStorage.getItem('wx_openid')
-        } else {
-            if (getQueryString('oid')) {
-                window.location.href = 'http://interface.gd.sina.com.cn/gdif/gdwx/wxcode?oid=' + getQueryString('oid')
-            } else {
-                window.location.href = 'http://interface.gd.sina.com.cn/gdif/gdwx/wxcode'
+    setCookie (cname, cvalue, exdays) {
+        let d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = 'expires=' + d.toGMTString();
+        document.cookie = cname + '=' + cvalue + '; ' + expires;
+    },
+    getCookie(cname) {
+        let name = cname + '=';
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
             }
         }
-        return Promise.resolve(user.openid)
+        return '';
+    },
+
+    async getOpenid() {
+        let cookie = this.getCookie('ssoWxOpenid')
+        if (cookie) {
+            user.openid = cookie
+            // this.setCookie('sso_openid', '', -1)
+            localStorage.setItem('user_openid_2020', user.openid)
+        } else if (localStorage.getItem('user_openid_2020')) {
+            user.openid = localStorage.getItem('user_openid_2020')
+        } else {
+            let url = window.location.href;
+            let link = url.split('?')[0];
+            url = url.replace(link, '');
+            window.location.href = `http://interface.gd.sina.com.cn/wbwx/gdwx2019v1/wxcode${url}`;
+            return Promise.reject('error: no openid')
+        }
+        return user.openid
     },
 
     async getUserInfo(uid = user.openid) {
@@ -74,13 +93,13 @@ export default {
             openid = await this.getOpenid()
         }
         let res = await jsonp({
-            url: 'http://interface.gd.sina.com.cn/gdif/gdwx/c_member/',
+            url: 'http://interface.gd.sina.com.cn/wbwx/gdwx2019v1/c_member/',
             data: {
                 openid
             }
         })
-        if (res.error === 0) {
-            user.name = res.data.nickname
+        if (res.error === 10000) {
+            user.nickname = res.data.nickname
             user.avatar = res.data.headimgurl
         }
         return user
