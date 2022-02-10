@@ -24,7 +24,7 @@
     "babel-plugin-import": "^1.13.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "postcss-adaptive": "^0.5.0",
     "postcss-px2rem-exclude": "^0.0.6",
     "sass-loader": "^7.0.1",
